@@ -7,6 +7,7 @@ import {
 import {
   TrendingDown, Users, Clock, Calendar, Download, AlertTriangle, ShieldAlert
 } from "lucide-react";
+import { API_BASE_URL } from "../config";
 import styles from "../styles/Analytics.module.css";
 
 // Colors for Department PieChart distribution
@@ -23,7 +24,7 @@ export default function AnalyticsDashboard() {
     setLoading(true);
     setError("");
     try {
-      const response = await axios.get("http://localhost:8000/api/analytics/workforce-summary", {
+      const response = await axios.get(`${API_BASE_URL}/api/analytics/workforce-summary`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setData(response.data);
@@ -61,7 +62,7 @@ export default function AnalyticsDashboard() {
   const handleExport = async () => {
     setExporting(true);
     try {
-      const response = await axios.get("http://localhost:8000/api/attendance/export", {
+      const response = await axios.get(`${API_BASE_URL}/api/attendance/export`, {
         headers: { Authorization: `Bearer ${token}` },
         responseType: "blob"
       });

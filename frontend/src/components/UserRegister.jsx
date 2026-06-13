@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { UserPlus, Camera, Check, AlertCircle, X, ShieldAlert, RefreshCw } from "lucide-react";
+import { API_BASE_URL } from "../config";
 import styles from "../styles/Register.module.css";
 
 export default function UserRegister({ onRegistrationSuccess }) {
@@ -101,7 +102,7 @@ export default function UserRegister({ onRegistrationSuccess }) {
     formData.append("file", photoBlob, `${email}_avatar.jpg`);
 
     try {
-      const response = await axios.post("http://localhost:8000/api/users/register", formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/users/register`, formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
 

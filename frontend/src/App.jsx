@@ -5,6 +5,7 @@ import AttendanceScanner from "./components/AttendanceScanner";
 import UserRegister from "./components/UserRegister";
 import AnalyticsDashboard from "./components/AnalyticsDashboard";
 import AdminCrud from "./components/AdminCrud";
+import { API_BASE_URL } from "./config";
 import styles from "./styles/App.module.css";
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8000/api/users");
+      const response = await axios.get(`${API_BASE_URL}/api/users`);
       setUsers(response.data);
     } catch (err) {
       console.error("Failed to fetch users:", err);

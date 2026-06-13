@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Camera, RefreshCw, CheckCircle, AlertTriangle, Play, Square, Eye, Activity } from "lucide-react";
+import { API_BASE_URL, WS_BASE_URL } from "../config";
 import styles from "../styles/Attendance.module.css";
 
 export default function AttendanceScanner() {
@@ -51,7 +52,7 @@ export default function AttendanceScanner() {
 
   const fetchRecentLogs = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/attendance/recent");
+      const response = await axios.get(`${API_BASE_URL}/api/attendance/recent`);
       setRecentLogs(response.data);
     } catch (err) {
       console.error("Failed to fetch recent logs:", err);
@@ -93,7 +94,7 @@ export default function AttendanceScanner() {
       setMessage("Connecting to AI service...");
 
       // 2. Open WebSocket to backend
-      const ws = new WebSocket("ws://localhost:8000/api/ws/attendance");
+      const ws = new WebSocket(`${WS_BASE_URL}/api/ws/attendance`);
       wsRef.current = ws;
 
       ws.onopen = () => {

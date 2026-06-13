@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Shield, Lock, User, Trash2, Edit2, LogOut, Check, AlertCircle, X, Save } from "lucide-react";
+import { API_BASE_URL } from "../config";
 import styles from "../styles/AdminCrud.module.css";
 
 export default function AdminCrud({ onCrudChange }) {
@@ -25,7 +26,7 @@ export default function AdminCrud({ onCrudChange }) {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8000/api/users");
+      const response = await axios.get(`${API_BASE_URL}/api/users`);
       setUsers(response.data);
     } catch (err) {
       console.error("Failed to fetch users", err);
@@ -44,7 +45,7 @@ export default function AdminCrud({ onCrudChange }) {
     e.preventDefault();
     setLoginError("");
     try {
-      const response = await axios.post("http://localhost:8000/api/auth/login", {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email: emailInput,
         password: passwordInput,
       });
@@ -71,7 +72,7 @@ export default function AdminCrud({ onCrudChange }) {
     setActionMessage("");
     setIsError(false);
     try {
-      await axios.delete(`http://localhost:8000/api/users/${id}`, {
+      await axios.delete(`${API_BASE_URL}/api/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setIsError(false);
@@ -114,7 +115,7 @@ export default function AdminCrud({ onCrudChange }) {
     }
 
     try {
-      await axios.put(`http://localhost:8000/api/users/${editingUser.id}`, updatePayload, {
+      await axios.put(`${API_BASE_URL}/api/users/${editingUser.id}`, updatePayload, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setIsError(false);
