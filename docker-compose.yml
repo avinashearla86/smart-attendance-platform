@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: ankane/pgvector:latest
+    container_name: smart_attendance_db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: smart_attendance
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  postgres_data:

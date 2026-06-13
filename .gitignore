@@ -1,0 +1,22 @@
+# === Python & Virtual Environments ===
+venv/
+**/venv/
+.venv/
+**/.venv/
+**/__pycache__/
+*.py[cod]
+backend/app/services/late_risk_model.pkl
+
+# === NodeJS & Frontend Builds ===
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+
+# === Databases & Local Secrets ===
+*.db
+*.sqlite3
+**/.env
+.env

@@ -1,0 +1,202 @@
+.appContainer {
+  min-height: 100vh;
+  background-color: #020617;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
+  color: #f8fafc;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 40px 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.directoryCard {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dirTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  background: rgba(6, 182, 212, 0.1);
+  color: #06b6d4;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Custom scrollbar */
+.userList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.userList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.userList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+.userItem {
+  display: flex;
+  align-items: center;
+  justify-content: justify;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(30, 41, 59, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.userItem:hover {
+  background: rgba(30, 41, 59, 0.4);
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #06b6d4, #10b981);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #020617;
+  font-size: 0.9rem;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.userName {
+  font-weight: 600;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+}
+
+.userEmail {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.noUsers {
+  text-align: center;
+  color: #475569;
+  font-size: 0.9rem;
+  padding: 24px 0;
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.tabBtn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 24px;
+  font-weight: 600;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+}
+
+.activeTabBtn {
+  background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+  border: none;
+  color: #020617;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+}
+
+.activeTabBtn:hover {
+  background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+  color: #020617;
+}
+
+.tabContent {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
