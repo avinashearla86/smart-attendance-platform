@@ -1,4 +1,5 @@
 import cv2
+# pyrefly: ignore [missing-import]
 import mediapipe as mp
 import numpy as np
 import logging
